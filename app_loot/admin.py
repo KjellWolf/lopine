@@ -1,11 +1,15 @@
 from django.contrib import admin
+from .models import Item, ItemDetails
 
-from .models import Item
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'item_typ', 'rarity', 'max_count', 'condition', 'status')
+    list_filter = ('item_typ', 'rarity', 'condition', 'status')
+    search_fields = ('name',)
+    list_per_page = 20  # Customize the number of items displayed per page
 
+class ItemDetailsAdmin(admin.ModelAdmin):
+    list_display = ('item',)
+    search_fields = ('item__name',)  # Search based on the related Item's name
 
-class ChoiceInline(admin.TabularInline):
-    model = Item
-    extra = 3
-
-
-admin.site.register(Item)
+admin.site.register(Item, ItemAdmin)
+admin.site.register(ItemDetails, ItemDetailsAdmin)
