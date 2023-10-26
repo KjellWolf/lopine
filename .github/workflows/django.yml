@@ -18,6 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Create venv
+      run: python -m venv myvenv  # Create a virtual environment named 'myvenv'
+
+    - name: Activate venv
+      run: |
+        source myvenv/bin/activate
+        python -m pip install --upgrade pip
+        
     - name: Install Dependencies
       run: |
         python3 -m pip install --upgrade pip
