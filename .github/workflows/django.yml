@@ -2,12 +2,10 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main" ]
-
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: self-hosted
     timeout-minutes: 10
     strategy:
@@ -28,5 +26,6 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt  # Install your project's dependencies
 
-    - name: Run django
-      run: python3 manage.py runserver 0.0.0.0:8000 &
+    - name: Run Django
+      run: |
+        python3 manage.py runserver 0.0.0.0:8000
