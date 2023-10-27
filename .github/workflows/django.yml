@@ -17,13 +17,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Add .local/bin to PATH
-      run: echo "PATH=$PATH:/home/admin/.local/bin" >> $GITHUB_ENV
-
-    - name: Upgrade pip
-      run: python3 -m pip install --user --upgrade pip
-
-    - name: Install dependencies
-      run: pip install -r requirements.txt  # Install your project's dependencies
-
+    - name: start compose
+      run: docker-compose up -d 
 
