@@ -1,0 +1,31 @@
+name: Django CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.12.0]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Add .local/bin to PATH
+      run: echo "PATH=$PATH:/home/admin/.local/bin" >> $GITHUB_ENV
+
+    - name: Upgrade pip
+      run: python3 -m pip install --user --upgrade pip
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Install your project's dependencies
+
+    - name: Run Django
+      run: |
+        python3 manage.py runserver 0.0.0.0:8000
