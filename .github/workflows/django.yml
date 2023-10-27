@@ -17,6 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Stop Container
+      run: sudo docker-compose stop
+
     - name: start compose
       run: sudo docker-compose up -d 
 
