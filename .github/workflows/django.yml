@@ -17,8 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Restart Container
-      run: sudo docker-compose stop
+    - name: Migrade stage db
+      run: docker exec -it lopine-web-1 python manage.py makemigrations all 
 
-    - name: Start Compose
-      run: sudo docker-compose up -d
+    - name: Migrade code
+      run: docker exec -it lopine-web-1 python manage.py migrate
+
