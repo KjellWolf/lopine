@@ -1,5 +1,6 @@
 services:
   web:
+    container_name: lopine01
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
