@@ -47,23 +47,17 @@ class Item(models.Model):
     rulesystem = models.CharField(name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
     item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
     gewichtung = models.IntegerField(default=1000)
-    name = models.CharField(name='Name (*)', max_length=255)
+    item_name = models.CharField(name='Name (*)', max_length=255)
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
     max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
     material = models.CharField(name='Material (*)', max_length=255)
     color = models.CharField(name='Color (*)', max_length=255)
+    condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
     status = models.CharField(name='Status (*)', max_length=20, choices=STATUS_CHOICES, default='No_Status')
     status_note = models.CharField(name='Status Note', max_length=255, default=None)
     weight = models.IntegerField(default=1, validators=[MinValueValidator(1)])
 
     def __str__(self):
-        return self.name
+        return self.item_name
 
 
-class ItemDetails(models.Model):
-    item = models.OneToOneField(Item, on_delete=models.CASCADE, related_name='details')
-
-    # Hier können Sie zusätzliche Felder für die Details des Items hinzufügen, die nur für bestimmte Item-Instanzen gelten.
-
-    def __str__(self):
-        return f"Details for {self.item.Name}"
