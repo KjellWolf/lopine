@@ -48,7 +48,7 @@ class Item(models.Model):
     item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
     gewichtung = models.IntegerField(default=1000)
     name = models.CharField(name='Name (*)', max_length=255)
-    common_name = models.CharField(name='Common Name (*)', max_length=255)
+    common_name = models.CharField(name='Common Name (*)', max_length=255, default='')
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
     max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
     material = models.CharField(name='Material (*)', max_length=255)
