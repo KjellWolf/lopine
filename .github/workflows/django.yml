@@ -17,6 +17,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Restart Container
-      run: sudo docker-compose -f docker-compose.yml restart
+    - name: stop Container
+      run: sudo docker-compose stop
 
