@@ -19,7 +19,7 @@ jobs:
 
     - name: Migrade stage db
       run: |
-      yes "yes" | docker exec lopine-web-1 python manage.py makemigrations
+       yes "yes" | docker exec lopine-web-1 python manage.py makemigrations
 
     - name: Migrade code
       run: docker exec lopine-web-1 python manage.py migrate
