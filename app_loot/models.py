@@ -54,8 +54,8 @@ class Item(models.Model):
     color = models.CharField(name='Color (*)', max_length=255)
     condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
     status = models.CharField(name='Status (*)', max_length=20, choices=STATUS_CHOICES, default='No_Status')
-    status_note = models.CharField(name='Status Note', max_length=255, default=None)
-    weight = models.IntegerField(default=1, validators=[MinValueValidator(1)])
+    status_note = models.CharField(name='Status Note', max_length=255, default='None')
+    weight = models.IntegerField(name='Weight (gramm)', default=1, validators=[MinValueValidator(1)])
 
     def __str__(self):
         return self.item_name
