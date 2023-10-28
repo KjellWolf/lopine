@@ -3,11 +3,18 @@ from django.db import models
 
 
 class Item(models.Model):
+    SYSTEM_CHOICES = (
+        ('DSA4.1', 'DSA4.1'),
+        ('DSA5', 'DSA5'),
+        ('SR4', 'SR4'),
+        ('SR5', 'SR5'),
+    )
+
     ITEM_TYP_CHOICES = (
         ('Weapon', 'Weapon'),
         ('Armor', 'Armor'),
         ('Household', 'Household'),
-        ('Nature_Matrial', 'Nature_Matrial')
+        ('Nature_Material', 'Nature_Material')
         # Weitere Optionen für Item-Typen hinzufügen
     )
 
@@ -24,17 +31,20 @@ class Item(models.Model):
         ('New', 'New'),
         ('Used', 'Used'),
         ('Damaged', 'Damaged'),
+        ('Rusted', 'Rusted'),
+        ('Rotten', 'Rotten')
         # Weitere Optionen für Zustand hinzufügen
     )
 
     STATUS_CHOICES = (
         ('No Status', 'No_Status'),
-        ('Active', 'Active'),
-        ('Inactive', 'Inactive'),
+        ('Magical', 'Magical'),
+        ('Karmal', 'Karmal'),
         # Weitere Optionen für Status hinzufügen
     )
 
     item_id = models.AutoField(primary_key=True)
+    rulesystem = models.CharField(max_length=20, choices=SYSTEM_CHOICES, default='')
     item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Common Item')
     gewichtung = models.IntegerField(default=1000)
     name = models.CharField(max_length=255)
@@ -43,7 +53,8 @@ class Item(models.Model):
     material = models.CharField(max_length=255)
     color = models.CharField(max_length=255)
     condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Unremarkable')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='No_Status')
+    status_note = models.CharField(max_length=255, default=None)
     weight = models.IntegerField(default='0', validators=[MinValueValidator(0)])
 
     def __str__(self):
