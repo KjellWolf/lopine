@@ -1,4 +1,4 @@
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -46,7 +46,7 @@ class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
     rulesystem = models.CharField(name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
     item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
-    gewichtung = models.IntegerField(default=1000)
+    gewichtung = models.IntegerField(name='Gewichtung 10=1%', default=500, validators=[MaxValueValidator(950)])
     name = models.CharField(name='Name (*)', max_length=255)
     common_name = models.CharField(name='Common Name (*)', max_length=255, default='')
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
