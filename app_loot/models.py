@@ -44,18 +44,17 @@ class Item(models.Model):
     )
 
     item_id = models.AutoField(primary_key=True)
-    rulesystem = models.CharField(max_length=20, choices=SYSTEM_CHOICES, default='')
-    item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Common Item')
+    rulesystem = models.CharField(name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
+    item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
     gewichtung = models.IntegerField(default=1000)
-    name = models.CharField(max_length=255)
+    name = models.CharField(name='Name (*)', max_length=255)
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
-    max_count = models.IntegerField(validators=[MinValueValidator(0)])
-    material = models.CharField(max_length=255)
-    color = models.CharField(max_length=255)
-    condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='No_Status')
-    status_note = models.CharField(name='Status Note (*)', max_length=255, default=None)
-    weight = models.IntegerField(default='0', validators=[MinValueValidator(0)])
+    max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
+    material = models.CharField(name='Material (*)', max_length=255)
+    color = models.CharField(name='Color (*)', max_length=255)
+    status = models.CharField(name='Status (*)', max_length=20, choices=STATUS_CHOICES, default='No_Status')
+    status_note = models.CharField(name='Status Note', max_length=255, default=None)
+    weight = models.IntegerField(default=1, validators=[MinValueValidator(1)])
 
     def __str__(self):
         return self.name
