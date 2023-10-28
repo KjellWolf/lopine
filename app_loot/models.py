@@ -47,7 +47,7 @@ class Item(models.Model):
     rulesystem = models.CharField(name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
     item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
     gewichtung = models.IntegerField(default=1000)
-    item_name = models.CharField(name='Name (*)', max_length=255)
+    name = models.CharField(name='Name (*)', max_length=255)
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
     max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
     material = models.CharField(name='Material (*)', max_length=255)
@@ -57,7 +57,6 @@ class Item(models.Model):
     status_note = models.CharField(name='Status Note', max_length=255, default='None')
     weight = models.IntegerField(name='Weight (gramm)', default=1, validators=[MinValueValidator(1)])
 
-    def __str__(self):
-        return self.item_name
+
 
 
