@@ -40,6 +40,7 @@ class Item(models.Model):
         ('No Status', 'No_Status'),
         ('Magical', 'Magical'),
         ('Karmal', 'Karmal'),
+        ('Deamon', 'Daemon')
         # Weitere Optionen für Status hinzufügen
     )
 
