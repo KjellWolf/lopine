@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Migrade stage db
-      run: docker exec lopine-web-1 python manage.py makemigrations
+      run: yes | docker exec lopine-web-1 python manage.py makemigrations
 
     - name: Migrade code
       run: docker exec lopine-web-1 python manage.py migrate
