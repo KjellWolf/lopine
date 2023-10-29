@@ -17,10 +17,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Migrade stage db
-      run: |
-       docker exec lopine-web-1 python manage.py makemigrations | echo "y"
+#    - name: Migrade stage db
+ #     run: |
+ #      docker exec lopine-web-1 python manage.py makemigrations | echo "y"
 
-    - name: Migrade code
-      run: docker exec lopine-web-1 python manage.py migrate
+
+#  - name: Migrade code
+ #     run: docker exec lopine-web-1 python manage.py migrate
 
