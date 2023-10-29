@@ -21,14 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-$j%x-b#s818(lg^@*0p_7virklk%ji!gswdacph8n%vl)cq5)f'
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("5F74hgqMfxvitxP4oS^F5S6xrcWcY%rtMaJJ6YkJ$FErgvyySmeoemk5fhxKesr#3avUZ!TW^85EdrKoG@pv3aqFuHjnfDnWky6PdB@ZpfoAbKbBzediPtcU^uLUR2fM")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = bool(os.environ.get("DEBUG", default=0))
+DEBUG = True
 
-# ALLOWED_HOSTS = ["127.0.0.1", "localhost", "mc.carnivore-wolfs.online"]
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "mc.carnivore-wolfs.online"]
+
 
 # Application definition
 
@@ -77,22 +76,10 @@ WSGI_APPLICATION = 'Lopine.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-'''
-DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
-        "USER": os.environ.get("SQL_USER", "user"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-        "HOST": os.environ.get("SQL_HOST", "localhost"),
-        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
 
