@@ -1,13 +1,38 @@
-# imports
 from django.contrib import admin
 from .models import Item
 
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('Name (*)', 'item_typ', 'rarity', 'max_count', 'condition', 'Status (*)')
-    list_filter = ('item_typ', 'rarity', 'condition', 'Status (*)')
-    search_fields = ('item_name',)
-    list_per_page = 20  # Customize the number of items displayed per page
+    list_display = (
+        'item_id',
+        'name',
+        'item_type',
+        'weight_percentage',
+        'rarity',
+        'max_count',
+        'material',
+        'color',
+        'condition',
+        'status',
+    )
+
+    list_filter = ('item_type', 'rarity', 'condition', 'status')
+
+    search_fields = ('name', 'common_name', 'material', 'color', 'status_note')
+
+    list_editable = (
+        'name', 'item_type', 'weight_percentage', 'rarity', 'max_count', 'material', 'color', 'condition', 'status')
+
+    ordering = ('name',)
+
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('rulesystem', 'item_type', 'name', 'common_name', 'rarity', 'max_count')
+        }),
+        ('Item Details', {
+            'fields': ('material', 'color', 'condition', 'status', 'status_note', 'weight_gram')
+        }),
+    )
 
 
 admin.site.register(Item, ItemAdmin)
