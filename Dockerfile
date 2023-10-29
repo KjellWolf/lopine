@@ -11,8 +11,8 @@ COPY . /code/
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh .
-RUN sed -i 's/\r$//g' ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
+RUN sudo sed -i 's/\r$//g' ./entrypoint.sh
+RUN sudo chmod +x ./entrypoint.sh
 
 # copy project
 COPY . .
