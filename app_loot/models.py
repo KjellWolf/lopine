@@ -15,7 +15,7 @@ class Item(models.Model):
         ('Armor', 'Armor'),
         ('Household', 'Household'),
         ('Nature_Material', 'Nature_Material')
-        # Weitere Optionen für Item-Typen hinzufügen
+        # Add more options for item types
     )
 
     RARITY_CHOICES = (
@@ -23,8 +23,8 @@ class Item(models.Model):
         ('Uncommon', 'Uncommon'),
         ('Rare', 'Rare'),
         ('Epic', 'Epic'),
-        ('Legendary', 'Legendary'),
-        # Weitere Optionen für Rarität hinzufügen
+        ('Legendary', 'Legendary')
+        # Add more options for rarity
     )
 
     CONDITION_CHOICES = (
@@ -33,31 +33,31 @@ class Item(models.Model):
         ('Damaged', 'Damaged'),
         ('Rusted', 'Rusted'),
         ('Rotten', 'Rotten')
-        # Weitere Optionen für Zustand hinzufügen
+        # Add more options for condition
     )
 
     STATUS_CHOICES = (
-        ('No Status', 'No_Status'),
+        ('No Status', 'No Status'),
         ('Magical', 'Magical'),
         ('Karmal', 'Karmal'),
-        ('Deamon', 'Daemon')
-        # Weitere Optionen für Status hinzufügen
+        ('Daemon', 'Daemon')
+        # Add more options for status
     )
 
     item_id = models.AutoField(primary_key=True)
-    rulesystem = models.CharField(name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
-    item_typ = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
-    gewichtung = models.IntegerField(name='Gewichtung 10=1%', default=500, validators=[MaxValueValidator(950)])
-    name = models.CharField(name='Name (*)', max_length=255)
-    common_name = models.CharField(name='Common Name (*)', max_length=255, default='')
+    rulesystem = models.CharField(max_length=20, choices=SYSTEM_CHOICES, default='')
+    item_type = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
+    weight_percentage = models.IntegerField(default=500, validators=[MaxValueValidator(950)])
+    name = models.CharField(max_length=255)
+    common_name = models.CharField(max_length=255, default='')
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
     max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
-    material = models.CharField(name='Material (*)', max_length=255)
-    color = models.CharField(name='Color (*)', max_length=255)
+    material = models.CharField(max_length=255)
+    color = models.CharField(max_length=255)
     condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
-    status = models.CharField(name='Status (*)', max_length=20, choices=STATUS_CHOICES, default='No_Status')
-    status_note = models.CharField(name='Status Note', max_length=255, default='None')
-    weight = models.IntegerField(name='Weight (gramm)', default=1, validators=[MinValueValidator(1)])
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='No Status')
+    status_note = models.CharField(max_length=255, default='None')
+    weight_gram = models.IntegerField(default=1, validators=[MinValueValidator(1)])
 
 
 
