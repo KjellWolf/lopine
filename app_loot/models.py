@@ -64,6 +64,7 @@ class Item(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='No Status')
     status_note = models.CharField(max_length=255, default='None')
     weight_gram = models.IntegerField(default=1, validators=[MinValueValidator(1)])
+    price_gold = models.FloatField(default=1, validators=[MinValueValidator(0)])
 
 
 

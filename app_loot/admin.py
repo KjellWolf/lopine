@@ -25,7 +25,7 @@ class ItemAdmin(admin.ModelAdmin):
             'fields': ('rulesystem', 'language', 'item_type', 'name', 'common_name', 'rarity', 'max_count')
         }),
         ('Item Details', {
-            'fields': ('material', 'color', 'condition', 'status', 'status_note', 'weight_gram')
+            'fields': ('material', 'color', 'condition', 'status', 'status_note', 'weight_gram', 'price_gold')
         }),
     )
 
