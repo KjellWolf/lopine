@@ -3,6 +3,11 @@ from django.db import models
 
 
 class Item(models.Model):
+    LANG_CHOICES = (
+        ('DEU', 'DEU'),
+        ('ENG', 'ENG'),
+    )
+
     SYSTEM_CHOICES = (
         ('DSA4.1', 'DSA4.1'),
         ('DSA5', 'DSA5'),
@@ -46,6 +51,7 @@ class Item(models.Model):
 
     item_id = models.AutoField(primary_key=True)
     rulesystem = models.CharField(max_length=20, choices=SYSTEM_CHOICES, default='')
+    language = models.CharField(max_length=20, choices=LANG_CHOICES, default='')
     item_type = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
     weight_percentage = models.IntegerField(default=500, validators=[MaxValueValidator(950)])
     name = models.CharField(max_length=255)
