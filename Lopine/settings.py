@@ -49,7 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
-    'app_loot.apps.AppLootConfig'
+    'app_loot.apps.AppLootConfig',
+]
+
+# Configure the STATICFILES_DIRS setting to include the folder containing your HTML file.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'HTML'),
 ]
 
 MIDDLEWARE = [
