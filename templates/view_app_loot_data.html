@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Item List</title>
+</head>
+<body>
+<h1>Item List</h1>
+<ul>
+    {% for item in items %}
+        <li>
+            <strong>Name:</strong> {{ item.name }}<br>
+            <strong>Type:</strong> {{ item.get_item_type_display }}<br>
+            <strong>Rarity:</strong> {{ item.get_rarity_display }}<br>
+            <!-- Add more attributes as needed -->
+        </li>
+    {% endfor %}
+</ul>
+</body>

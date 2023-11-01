@@ -16,10 +16,36 @@ class Item(models.Model):
     )
 
     ITEM_TYP_CHOICES = (
-        ('Weapon', 'Weapon'),
-        ('Armor', 'Armor'),
         ('Household', 'Household'),
-        ('Nature_Material', 'Nature_Material')
+        ('Nature_Material', 'Nature_Material'),
+        ('Food', 'Food'),
+        ('Lighting', 'Lighting'),
+        ('Books', 'Books'),
+        ('Eating Utensils', 'Eating Utensils'),
+        ('Vehicles', 'Vehicles'),
+        ('Vehicle Accessories', 'Vehicle Accessories'),
+        ('Precision Mechanics', 'Precision Mechanics'),
+        ('Long-range Weapons', 'Long-range Weapons'),
+        ('Leisure Needs', 'Leisure Needs'),
+        ('Spices', 'Spices'),
+        ('Poisons', 'Poisons'),
+        ('Medicinal Herbs', 'Medicinal Herbs'),
+        ('Chains', 'Chains'),
+        ('Clothing', 'Clothing'),
+        ('Personal Care', 'Personal Care'),
+        ('Ammunition', 'Ammunition'),
+        ('Musical Instruments', 'Musical Instruments'),
+        ('Melee Weapons', 'Melee Weapons'),
+        ('Travel Supplies', 'Travel Supplies'),
+        ('Armor Parts', 'Armor Parts'),
+        ('Shields', 'Shields'),
+        ('Parrying Weapons', 'Parrying Weapons'),
+        ('Jewelry', 'Jewelry'),
+        ('Stationery', 'Stationery'),
+        ('Animals', 'Animals'),
+        ('Pet Supplies', 'Pet Supplies'),
+        ('Weapon Accessories', 'Weapon Accessories'),
+        ('Tools', 'Tools')
         # Add more options for item types
     )
 
