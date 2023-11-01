@@ -32,13 +32,13 @@ class ItemAdmin(admin.ModelAdmin):
 
     list_filter = ('item_type', 'rarity', 'condition', 'status')
 
-    search_fields = ('name', 'common_name', 'status_note')
+    search_fields = ('name', 'item_category_name', 'status_note')
 
     ordering = ('name',)
 
     fieldsets = (
         ('Basic Information', {
-            'fields': ('rulesystem', 'language', 'weight_percentage', 'item_type', 'name', 'common_name', 'rarity', 'max_count')
+            'fields': ('rulesystem', 'language', 'weight_percentage', 'item_type', 'name', 'item_category_name', 'rarity', 'max_count')
         }),
         ('Item Details', {
             'fields': ('condition', 'status', 'status_note', 'weight_gram', 'price_gold')

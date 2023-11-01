@@ -79,13 +79,19 @@ class Item(models.Model):
     rulesystem = models.CharField(verbose_name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
     language = models.CharField(max_length=20, choices=LANG_CHOICES, default='')
     item_type = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
-    weight_percentage = models.IntegerField(default=500, validators=[MaxValueValidator(950)])
-    name = models.CharField(max_length=255)
-    common_name = models.CharField(max_length=255, default='')
-    rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
-    max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
-    # material = models.CharField(max_length=255)
-    # color = models.CharField(max_length=255)
+    weight_percentage = models.IntegerField(default=500, validators=[MaxValueValidator(950)], help_text='500 = 50%')
+    name = models.CharField(max_length=255,
+                            unique=True,
+                            help_text='Specific Item Name like Rusty Dagger, Sweet Bread or Leather Shirt')
+    item_category_name = models.CharField(max_length=255,
+                                          default='',
+                                          help_text='Overall Category like Dagger, Bread or Shirt')
+    rarity = models.CharField(max_length=20,
+                              choices=RARITY_CHOICES,
+                              default='Common')
+    max_count = models.IntegerField(validators=[MinValueValidator(1)],
+                                    default=1,
+                                    help_text='How many can be max found while Looting')
     condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='No Status')
     status_note = models.CharField(max_length=255, default='None')
