@@ -58,14 +58,29 @@ class Item(models.Model):
     common_name = models.CharField(max_length=255, default='')
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, default='Common')
     max_count = models.IntegerField(validators=[MinValueValidator(1)], default=1)
-    material = models.CharField(max_length=255)
-    color = models.CharField(max_length=255)
+    # material = models.CharField(max_length=255)
+    # color = models.CharField(max_length=255)
     condition = models.CharField(max_length=20, choices=CONDITION_CHOICES, default='Used')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='No Status')
     status_note = models.CharField(max_length=255, default='None')
     weight_gram = models.IntegerField(default=1, validators=[MinValueValidator(1)])
     price_gold = models.FloatField(default=1, validators=[MinValueValidator(0)])
 
+    def __str__(self):
+        return self.name
 
 
+class Color(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='colors')
+    color_name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.color_name
+
+
+class Material(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='material')
+    material_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.material_name
