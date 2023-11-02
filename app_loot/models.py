@@ -45,7 +45,8 @@ class Item(models.Model):
         ('Animals', 'Animals'),
         ('Pet Supplies', 'Pet Supplies'),
         ('Weapon Accessories', 'Weapon Accessories'),
-        ('Tools', 'Tools')
+        ('Tools', 'Tools'),
+        ('Drinks', 'Drinks')
         # Add more options for item types
     )
 
