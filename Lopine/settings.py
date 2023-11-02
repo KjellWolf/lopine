@@ -53,8 +53,10 @@ INSTALLED_APPS = [
 ]
 
 # Configure the STATICFILES_DIRS setting to include the folder containing your HTML file.
+
+# Add this in your settings.py file:
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'HTML'),
+    BASE_DIR / "static"
 ]
 
 MIDDLEWARE = [

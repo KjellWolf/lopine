@@ -1,10 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
+
 <head>
     <title>Item List</title>
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.jpg">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+  <header id="headbar">
+    <div>
+      <h1 id="title">&nbsp;lopine&nbsp;</h1>
+    </div>
+
+    <nav id="navbar">
+      <a id="nava" href="index.html">&nbsp;Home&nbsp;</a>
+      <a id="navaka" href="view_app_loot_data.html">&nbsp;Loot&nbsp;</a>
+      <a id="nava" href="/wetter.html">&nbsp;Weather&nbsp;</a>
+      <a id="nava" href="/begegnung.html">&nbsp;Encounter&nbsp;</a>
+      <a id="nava" href="/Changelog.html">&nbsp;Changelog&nbsp;</a>
+    </nav>
+  </header>
 <h1>Item List</h1>
 <ul>
     {% for item in items %}
