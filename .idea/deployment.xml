@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" uploadOnCheckin="bc18c77d-aa5b-42bb-8e8b-c61d6faef2b0" remoteFilesAllowedToDisappearOnAutoupload="false">
-    <option name="myUploadOnCheckinName" value="root@mc.carnivore-wolfs.online:22 agent" />
+  <component name="PublishConfigData" autoUpload="Always" overwriteAll="false" uploadOnCheckin="d341d848-7072-488a-a680-2cda28118961" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.sqlite3" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <option name="myUploadOnCheckinName" value="lopine.vps" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
