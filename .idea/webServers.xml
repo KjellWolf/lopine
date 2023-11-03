@@ -3,11 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="24a8cdcc-5d8d-482d-be28-daae4ead2b04" name="vps" url="http://mc.carnivore-wolfs.online:8888/admin/">
-        <fileTransfer accessType="SFTP" host="lopine.carnivore-wolfs.online" port="22" sshConfigId="8113314a-aa8c-4ef1-84d8-7762cada4f2b" sshConfig="root@lopine.carnivore-wolfs.online:22 agent" authAgent="true">
-          <advancedOptions>
-            <advancedOptions keepAliveTimeout="0" />
-          </advancedOptions>
-        </fileTransfer>
+        <fileTransfer accessType="SFTP" host="mc.carnivore-wolfs.online" port="22" sshConfigId="84a03eaa-7903-40e4-ae2e-11fec913c1aa" sshConfig="root@mc.carnivore-wolfs.online:22 agent" authAgent="true" />
       </webServer>
     </option>
   </component>
