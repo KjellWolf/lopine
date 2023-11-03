@@ -36,8 +36,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_FOR = True
 
 # Configure the STATIC_URL and STATIC_ROOT for serving static files.
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'templates')
+STATIC_URL = 'static/'
+STATIC_ROOT = '/staticfiles/'
 
 # Application definition
 
@@ -56,7 +56,9 @@ INSTALLED_APPS = [
 
 # Add this in your settings.py file:
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    BASE_DIR / "static",
+    "staticfiles/"
+
 ]
 
 MIDDLEWARE = [
