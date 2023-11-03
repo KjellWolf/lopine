@@ -10,7 +10,7 @@ body {
   border-radius: 15px;
   max-width: 80%;
   margin: auto;
-  box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 2px 12px rgb(0, 0, 0);
 }
 
 #title {
