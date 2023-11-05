@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="lopine.carnivore-wofls.online" overwriteAll="false" uploadOnCheckin="d341d848-7072-488a-a680-2cda28118961" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.sqlite3" remoteFilesAllowedToDisappearOnAutoupload="false">
-    <option name="myUploadOnCheckinName" value="lopine.vps" />
+  <component name="PublishConfigData" autoUpload="Always" serverName="lopine.carnivore-wofls.online" overwriteAll="false" uploadOnCheckin="1beaf999-43da-40ca-9253-bdc01fc53a24" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.sqlite3" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <option name="myUploadOnCheckinName" value="lopine.carnivore-wofls.online" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
