@@ -5,7 +5,7 @@
       <paths name="lopine.carnivore-wofls.online">
         <serverdata>
           <mappings>
-            <mapping deploy="/root/home/github/actions-runner/_work/lopine/lopine" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/lopine" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

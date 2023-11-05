@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1beaf999-43da-40ca-9253-bdc01fc53a24" name="lopine.carnivore-wofls.online" url="">
+        <fileTransfer rootFolder="/root" accessType="SFTP" host="mc.carnivore-wolfs.online" port="22" sshConfigId="84a03eaa-7903-40e4-ae2e-11fec913c1aa" sshConfig="root@mc.carnivore-wolfs.online:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

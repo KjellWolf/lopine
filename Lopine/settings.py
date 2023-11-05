@@ -36,8 +36,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_FOR = True
 
 # Configure the STATIC_URL and STATIC_ROOT for serving static files.
-STATIC_URL = 'static/'
-STATIC_ROOT = '/staticfiles/'
+STATIC_URL = 'staticfiles/'
 
 # Application definition
 
@@ -56,9 +55,7 @@ INSTALLED_APPS = [
 
 # Add this in your settings.py file:
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "staticfiles/"
-
+    BASE_DIR / "staticfiles",
 ]
 
 MIDDLEWARE = [
@@ -94,11 +91,22 @@ WSGI_APPLICATION = 'Lopine.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'lopine',
+        'USER': 'hostmaster',
+        'PASSWORD': 'Cx8xo3UfASuNQyc',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -140,3 +148,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# Use Gunicorn as the application server.
+INSTALLED_APPS += ['gunicorn']
+
+# Host and port for Gunicorn.
+GUNICORN_BIND = '0.0.0.0:8888'
