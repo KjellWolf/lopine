@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Remote Python 3.11.2 (sftp://root@mc.carnivore-wolfs.online:22/root/.virtualenvs/lopine/bin/python)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (venv)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (lopine)" project-jdk-type="Python SDK" />
 </project>
