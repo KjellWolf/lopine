@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "lopine.carnivore-wolfs.online"]
 
+CSRF_TRUSTED_ORIGINS = ['https://lopine.carnivore-wolfs.online']
+
 # Set the secure proxy header to properly detect HTTPS requests.
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
