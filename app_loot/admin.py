@@ -38,7 +38,10 @@ class ItemAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Basic Information', {
-            'fields': ('rulesystem', 'language', 'weight_percentage', 'item_type', 'name', 'item_category_name', 'rarity', 'max_count')
+            'fields': ('rulesystem', 'language', 'weight_percentage', 'item_type')
+        }),
+        ('Item Main Info', {
+            'fields': ('name', 'item_category_name', 'rarity', 'max_count', 'item_place')
         }),
         ('Item Details', {
             'fields': ('condition', 'status', 'status_note', 'weight_gram', 'price_gold')

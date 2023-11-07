@@ -22,7 +22,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index.html', views.show_index, name='show_index'),
+    path('/', views.show_index, name='show_index'),
     path('', include('app_loot.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

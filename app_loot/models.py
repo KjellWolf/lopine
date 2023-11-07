@@ -15,6 +15,12 @@ class Item(models.Model):
         ('SR5', 'SR5'),
     )
 
+    ITEM_PLACE = (
+        ('Loot', 'Loot'),
+        ('Inventory', 'Inventory'),
+        ('Both', 'Both'),
+    )
+
     ITEM_TYP_CHOICES = (
         ('Household', 'Household'),
         ('Nature_Material', 'Nature_Material'),
@@ -80,6 +86,7 @@ class Item(models.Model):
     rulesystem = models.CharField(verbose_name='Rulesystem (*)', max_length=20, choices=SYSTEM_CHOICES, default='')
     language = models.CharField(max_length=20, choices=LANG_CHOICES, default='')
     item_type = models.CharField(max_length=20, choices=ITEM_TYP_CHOICES, default='Weapon')
+    item_place = models.CharField(max_length=20, choices=ITEM_PLACE, default="Both")
     weight_percentage = models.IntegerField(default=500, validators=[MaxValueValidator(950)], help_text='500 = 50%')
     name = models.CharField(max_length=255,
                             unique=True,
