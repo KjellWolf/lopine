@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AppLootConfig(AppConfig):
+class LopineItemsAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'app_loot'
+    name = 'lopine_items_app'

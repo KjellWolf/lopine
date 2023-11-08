@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.show_index, name='show_index'),
     path('wetter.html', views.show_maintain, name='maintain'),
     path('404.html', views.show_error404, name='wetter.html'),
-    path('', include('app_loot.urls')),
+    path('', include('lopine_items_app.urls')),
     path('', include('polls.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

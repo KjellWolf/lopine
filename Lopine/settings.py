@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
-    'app_loot.apps.AppLootConfig',
+    'lopine_items_app.apps.LopineItemsAppConfig'
 ]
 
 # Configure the STATICFILES_DIRS setting to include the folder containing your HTML file.
