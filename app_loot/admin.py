@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Item, Color, Material
 from django.forms import inlineformset_factory
 
+
 ColorFormSet = inlineformset_factory(Item, Color, fields=('color_name',))
 
 MaterialFormSet = inlineformset_factory(Item, Material, fields=('material_name', ))

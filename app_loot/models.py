@@ -74,6 +74,7 @@ class Item(models.Model):
         # Add more options for condition
     )
 
+
     STATUS_CHOICES = (
         ('No Status', 'No Status'),
         ('Magical', 'Magical'),
