@@ -26,6 +26,8 @@ Lopine is designed to be user-friendly and accessible. You can run it directly f
 
 We welcome contributions from the community to improve Lopine. If you have ideas for new features, bug fixes, or enhancements, please feel free to submit a pull request or open an issue on our [GitHub repository](https://github.com/KjellWolf/lopine).
 
+I thank Sesu for this files used mostly in the DB for the Loot gen.
+https://github.com/Unzumutbar/dsa-41-compendiums
 <!--
 ## License
 

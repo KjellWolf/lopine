@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('item-list/', views.item_list, name='item_list'),
+    path('lootgen', views.show_lootgen, name='lootgen'),
+    #path('wetter.html', views.error404, name='wetter.html'),
     # Add other URL patterns as needed
 ]
