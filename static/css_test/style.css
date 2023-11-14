@@ -1,0 +1,72 @@
+/* Resetting default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+    line-height: 1.6;
+    background-color: #525050;
+    color: #E5F9BD;
+  }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+header {
+    background-color: #525050;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 5px;
+    list-style: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #A0E418;
+    display: block;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #222831;
+    font-weight: bold;
+    border-color: #A0E418;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+header nav ul li a:hover {
+    background-color: #525050;
+    color: #E5F9BD;
+}
+
+header h1 {
+    color: #A0E418;
+    text-decoration: double;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #525050;
+    color: #E5F9BD;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 0px 0px rgba(0, 0, 0, 0.2);
+}
