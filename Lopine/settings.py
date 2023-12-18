@@ -110,12 +110,12 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'lopine',
-            # 'NAME' : os.getenv('PG_DATABASE'),
-            'USER': 'hostmaster',
-            # 'USER' : os.getenv('PG_USER'),
-            'PASSWORD': 'Cx8xo3UfASuNQyc',
-            # 'PASSWORD': os.getenv('PG_PASSWORD')
+            #'NAME': 'lopine',
+            'NAME' : os.getenv('PG_DATABASE'),
+            #'USER': 'hostmaster',
+            'USER' : os.getenv('PG_USER'),
+            #'PASSWORD': 'Cx8xo3UfASuNQyc',
+            'PASSWORD': os.getenv('PG_PASSWORD'),
             'HOST': 'localhost',
             'PORT': '',
         }
@@ -137,6 +137,17 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        "NAME": "pwned_passwords_django.validators.PwnedPasswordsValidator",
+        "OPTIONS": {
+            "error_message": "That password was pwned",
+            "help_message": "Your password can't be a commonly used password.",
+        }
+    },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 # Internationalization

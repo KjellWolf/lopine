@@ -200,6 +200,18 @@
   }
 }
 
+.profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+            background-color: #d27b07; /* Default color */
+            color: #fff;}
+
 #header-icon {
             position: absolute;
             top: 0;
@@ -2086,7 +2098,7 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
 }
-@media (max-width: 1199.98px) {
+@media (max-width: 1200px) {
   .table-responsive-xl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

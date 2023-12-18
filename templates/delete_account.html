@@ -46,19 +46,13 @@
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">User</a>
               <ul class="dropdown-menu">
                 <li>
-                    <form method="post" action="{% url 'login' %}">
+                    <form id="loginForm" class="px-4 py-3" method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         <input class="form-control" type="text" name="username" placeholder="Email" required>
                         <input class="form-control" type="password" name="password" placeholder="Password" required>
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
+                        <a href="{% url 'password_reset' %}">Forgot password?</a>
                     </form>
-                        {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
                 </li>
               </ul>
             </li>
@@ -71,48 +65,12 @@
       </div>
     </nav>
 </header>
-<h1>alone</h1>
+   <h2>Confirm Account Deletion</h2>
+    <p>Are you sure you want to delete your account?</p>
 
-<table class="table table-hover">
-        <tr class="table-active">
-            <th scope="col">Name</th>
-            <th scope="col">Rulesystem</th>
-            <th scope="col">Language</th>
-            <th scope="col">Type</th>
-            <th scope="col">Rarity</th>
-            <th scope="col">Condition</th>
-            <th scope="col">Status</th>
-            <th scope="col">Weight percentage</th>
-            <th scope="col">Weight (gram)</th>
-            <th scope="col">Price (gold)</th>
-            <th scope="col">Color</th>
-            <th scope="col">Material</th>
-        </tr>
-        {% for item in items %}
-            <tr class="{% cycle 'table-primary' 'table-default' as rowcolors %}">
-                <td>{{ item.name }}</td>
-                <td>{{ item.rulesystem.name }}</td>
-                <td>{{ item.language.name }}</td>
-                <td>{{ item.item_type.name }}</td>
-                <td>{{ item.rarity.name }}</td>
-                <td>{{ item.condition.name }}</td>
-                <td>{{ item.status.name }}</td>
-                <td>{{ item.weight_percentage }}</td>
-                <td>{{ item.weight_gram }}</td>
-                <td>{{ item.price_gold }}</td>
-                <td>
-                    {% for color in item.colors.all %}
-                        {{ color.color_name }}
-                         {% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-                <td>
-                    {% for color in item.material.all %}
-                        {{ color.material_name }}
-                         {% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+    <form method="post" action="{% url 'delete_account' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
+        <a href="{% url 'user_profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
 </body>

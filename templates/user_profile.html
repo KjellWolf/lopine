@@ -1,0 +1,75 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<head>
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.jpg' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+  <header>
+    <img id="header-icon" src="{% static '/images/favicon.jpg' %}" alt="website icon">
+    <h1 style="position: relative; text-align: center;">lopine</h1>
+    <h5 style="position: relative; text-align: center;">Tools for Dice masters</h5>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">lopine Apps</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Dashboard
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Loot Generator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Weather Generator</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Encounter Generator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">News</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</header>
+
+
+
+    <div class="container">
+        <h2>User Profile</h2>
+        {% if user %}
+            <div class="profile-info">
+                <!-- Profile picture with first letter of username -->
+                <div class="profile-picture" style="background-color: #d27b07;">
+                    {{ user.username|first|upper }}
+                </div>
+                <!-- Display username and email -->
+                <h3>Username: {{ user.username }}</h3>
+                <p>Email: {{ user.email }}</p>
+                <!-- Add more profile information here -->
+                <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
+                <!-- Replace 'delete_account' with your delete account URL name -->
+            </div>
+        {% else %}
+            <p>No user found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
