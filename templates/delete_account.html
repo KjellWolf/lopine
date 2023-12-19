@@ -14,14 +14,14 @@
     <h5 style="position: relative; text-align: center;">Tools for Dice masters</h5>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">lopine Apps</a>
+        <a class="navbar-brand" href="/">lopine Apps</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Dashboard
+              <a class="nav-link active" href="/">Dashboard
                 <span class="visually-hidden">(current)</span>
               </a>
             </li>
@@ -41,36 +41,55 @@
               <a class="nav-link" href="#">News</a>
             </li>
           </ul>
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">User</a>
-              <ul class="dropdown-menu">
-                <li>
-                    <form id="loginForm" class="px-4 py-3" method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
-                        <input class="form-control" type="text" name="username" placeholder="Email" required>
-                        <input class="form-control" type="password" name="password" placeholder="Password" required>
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
-                        <a href="{% url 'password_reset' %}">Forgot password?</a>
-                    </form>
-                </li>
-              </ul>
-            </li>
-          </ul>
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                    <!-- Show logged-in user profile and logout options -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{% url 'user_profile' %}" class="dropdown-item">Profile</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <!-- Show login form for users who are not logged in -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">User</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form method="post" action="{% url 'login' %}">
+                                    {% csrf_token %}
+                                    <input class="form-control" type="text" name="username" placeholder="Email" required>
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
           <form class="d-flex">
             <input class="form-control me-sm-2" type="search" placeholder="Search">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+
           </form>
         </div>
       </div>
     </nav>
 </header>
-   <h2>Confirm Account Deletion</h2>
-    <p>Are you sure you want to delete your account?</p>
-
-    <form method="post" action="{% url 'delete_account' %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
-        <a href="{% url 'user_profile' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-</body>
+{% if messages %}
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <ul class="mb-0">
+            {% for message in messages %}
+                <li> {{ message }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

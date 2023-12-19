@@ -19,7 +19,7 @@ def show_index(request):
             return redirect('user_profile')  # Redirect to the user profile page after successful login
         else:
             messages.error(request, 'Invalid username or password.')  # Display error message
-            return redirect('')  # Redirect back to the login page with error message
+            return redirect('show_index')  # Redirect back to the login page with error message
     return render(request, 'index.html', {'items': items})
 
 

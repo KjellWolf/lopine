@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 from django.conf import settings
 from django.contrib.auth import views as auth_views
@@ -38,5 +38,7 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('accounts/profile/', user_profile, name='user_profile'),
     path('delete_account/', delete_account_view, name='delete_account'),
+    path('user/profile/', user_profile, name='user_profile'),
+    path('user/logout/', LogoutView.as_view(next_page='/'), name='logout'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
