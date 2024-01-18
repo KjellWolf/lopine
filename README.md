@@ -22,6 +22,14 @@ Lopine is designed to be user-friendly and accessible. You can run it directly f
 3. Click the "Generate" button to create your content. 
 4. Use the generated loot, weather, or encounter in your tabletop role-playing session.
 
+## Self Hosting
+
+1. Pull this Project to your Server.
+2. cd into the project folder
+3. Create a .env file like the .env.dev
+4. run docker compose up -d
+5. docker exec lopine manage.py 
+
 ## Contributing
 
 We welcome contributions from the community to improve Lopine. If you have ideas for new features, bug fixes, or enhancements, please feel free to submit a pull request or open an issue on our [GitHub repository](https://github.com/KjellWolf/lopine).

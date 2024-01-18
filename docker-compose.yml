@@ -14,11 +14,11 @@ services:
     ports:
       - "3306:3306"
 
-  backend:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: Lopine_web
+    container_name: lopine_web
     command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     restart: always
     volumes:
