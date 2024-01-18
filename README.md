@@ -28,7 +28,8 @@ Lopine is designed to be user-friendly and accessible. You can run it directly f
 2. cd into the project folder
 3. Create a .env file like the .env.dev
 4. run docker compose up -d
-5. docker exec lopine manage.py 
+5. docker-compose run web python3 manage.py createsuperuser
+6. find Django Admin panel under: http://127.0.0.1:8000/admin/login/?next=/admin/ 
 
 ## Contributing
 
