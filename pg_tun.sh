@@ -1,1 +1,0 @@
-ssh -L 5432:127.0.0.1:5432  root@lopine.carnivore-wolfs.online

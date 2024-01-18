@@ -1,26 +1,34 @@
+version: '3'
 services:
-  web:
-    image: lopine
-    #build: .
-    command: python manage.py runserver 0.0.0.0:8000
+  db:
+    image: mysql:8.2
+    container_name: lopine_mariadb
+    restart: always
     volumes:
-      - .:/code
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "8888:8000"
+      - "3306:3306"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Lopine_web
+    command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
     env_file:
-      - ./.env.dev
+      - .env
     depends_on:
       - db
-  db:
-    image: postgres:15
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=$SQL_USER
-      - POSTGRES_PASSWORD=$SQL_PASSWORD
-      - POSTGRES_DB=$SQL_DATABASE
-    env_file:
-      - ./.env.dev
 
 volumes:
-  postgres_data:
+  data:

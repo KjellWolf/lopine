@@ -17,7 +17,7 @@ from django.core.checks import templates
 
 load_dotenv()
 
-localrun = True
+localrun = False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-$j%x-b#s818(lg^@*0p_7virklk%ji!gswdacph8n%vl)cq5)f'
-SECRET_KEY = "5F74hgqMfxvitxP4oS^F5S6xrcWcY%rtMaJJ6YkJ$FErgvyySmeoemk5fhxKesr#3avUZ!TW^85EdrKoG@pv3aqFuHjnfDnWky6PdB@ZpfoAbKbBzediPtcU^uLUR2fM"
-# SECRET_KEY = os.getenv('SECRET_KEY')
+#SECRET_KEY = "5F74hgqMfxvitxP4oS^F5S6xrcWcY%rtMaJJ6YkJ$FErgvyySmeoemk5fhxKesr#3avUZ!TW^85EdrKoG@pv3aqFuHjnfDnWky6PdB@ZpfoAbKbBzediPtcU^uLUR2fM"
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "lopine.carnivore-wolfs.online"]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = ['https://lopine.carnivore-wolfs.online']
 
@@ -109,15 +109,12 @@ if localrun is True:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            #'NAME': 'lopine',
-            'NAME' : os.getenv('PG_DATABASE'),
-            #'USER': 'hostmaster',
-            'USER' : os.getenv('PG_USER'),
-            #'PASSWORD': 'Cx8xo3UfASuNQyc',
-            'PASSWORD': os.getenv('PG_PASSWORD'),
-            'HOST': 'localhost',
-            'PORT': '',
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv('MYSQL_DATABASE'),
+            'USER': os.getenv('MYSQL_USER'),
+            'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+            'HOST': os.getenv('DB_HOST', 'db'),  # Use 'db' as default from .env
+            'PORT': os.getenv('DB_PORT', '3306'),  # Use '3306' as default from .env
         }
     }
 
