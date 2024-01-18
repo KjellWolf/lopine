@@ -134,13 +134,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-    {
-        "NAME": "pwned_passwords_django.validators.PwnedPasswordsValidator",
-        "OPTIONS": {
-            "error_message": "That password was pwned",
-            "help_message": "Your password can't be a commonly used password.",
-        }
-    },
 ]
 
 AUTHENTICATION_BACKENDS = [
