@@ -50,3 +50,6 @@ def show_maintain(request):
 
 def show_error404(request):
     return render(request, '404.html')
+
+def show_lootgen(request):
+    return render(request, 'lopine_items_app/lootgen.html')

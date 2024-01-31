@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.show_index, name='show_index'),
     path('wetter.html', views.show_maintain, name='maintain'),
+    path('lootgen', views.show_lootgen, name='lootgen'),
     path('404.html', views.show_error404, name='wetter.html'),
     path('', include('lopine_items_app.urls')),
     path('', include('polls.urls')),
